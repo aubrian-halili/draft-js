@@ -194,7 +194,7 @@ gulp.task('css', function() {
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('dist', ['modules', 'css'], function() {
+gulp.task('default', ['modules', 'css'], function() {
   var opts = {
     debug: true,
     output: 'Draft.js',
@@ -231,6 +231,6 @@ gulp.task('dev', function() {
   gulp.watch(paths.src, ['modules', 'dist']);
 });
 
-gulp.task('default', function(cb) {
+gulp.task('others', function(cb) {
   runSequence('check-dependencies', 'clean', ['modules', 'flow'], ['dist', 'dist:min'], cb);
 });
